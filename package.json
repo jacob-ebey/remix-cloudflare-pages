@@ -4,10 +4,10 @@
   "description": "",
   "license": "",
   "scripts": {
-    "postinstall": "remix setup cloudflare-workers",
+    "postinstall": "./node_modules/.bin/remix setup cloudflare-workers",
     "worker:build": "node ./worker-build.js",
-    "remix:build": "remix build",
-    "remix:watch": "remix watch",
+    "remix:build": "./node_modules/.bin/remix build",
+    "remix:watch": "./node_modules/.bin/remix watch",
     "build": "run-s remix:build worker:build",
     "dev": "wrangler pages dev ./public -- npm run remix:dev"
   },
