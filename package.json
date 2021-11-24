@@ -4,12 +4,12 @@
   "description": "",
   "license": "",
   "scripts": {
-    "postinstall": "./node_modules/.bin/remix setup cloudflare-workers",
+    "postinstall": "remix setup cloudflare-workers",
     "worker:build": "node ./worker-build.js",
-    "remix:build": "./node_modules/.bin/remix build",
-    "remix:watch": "./node_modules/.bin/remix watch",
+    "remix:build": "remix build",
+    "remix:watch": "remix watch",
     "build": "run-s remix:build worker:build",
-    "dev": "wrangler pages dev ./public -- npm run remix:dev"
+    "dev": "wrangler pages dev ./public"
   },
   "dependencies": {
     "@remix-run/cloudflare-workers": "^1.0.4",
