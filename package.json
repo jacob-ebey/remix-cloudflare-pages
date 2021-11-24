@@ -6,9 +6,9 @@
   "scripts": {
     "postinstall": "remix setup cloudflare-workers",
     "worker:build": "node ./worker-build.js",
-    "remix:build": "remix build",
+    "build": "remix build",
     "remix:watch": "remix watch",
-    "build": "run-s remix:build worker:build",
+    "-build": "run-s remix:build worker:build",
     "dev": "wrangler pages dev ./public"
   },
   "dependencies": {
