@@ -13,7 +13,8 @@ esbuild
     define: {
       "process.env.NODE_ENV": `"${mode}"`,
     },
-    outfile: "./public/_worker.js",
+    outfile: "./functions/[[remix]].js",
+    // outfile: "./public/_worker.js",
   })
   .then((res) => {
     if (res.errors.length > 1) {
