@@ -41,7 +41,6 @@ async function handleAsset(request: Request, env: unknown) {
   }
 
   const response = await envWithAssets.ASSETS.fetch(request);
-  console.log(await response.text());
   if (response.ok) return response;
 }
 
