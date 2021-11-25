@@ -64,13 +64,16 @@ export function createFetchHandler({
   ) => {
     let url = new URL(request.url);
     let response =
-      url.pathname === "" || url.pathname === "/"
+      (process.env.NODE_ENV === "development" && "") || url.pathname === "/"
         ? undefined
         : await handleAsset(request, env);
 
     if (!response) {
       response = await handleRequest(request, env, context);
     }
+
+    if (request.method.toLowerCase() === "post")
+      console.log({ bodyUsed: response.bodyUsed });
 
     return response;
   };
@@ -80,6 +83,7 @@ export function createFetchHandler({
       return await handleFetch(request, env, context);
     } catch (e) {
       if (process.env.NODE_ENV === "development" && e instanceof Error) {
+        console.error(e);
         return new Response(e.message || e.toString(), {
           status: 500,
         });
