@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   Link,
   Links,
-  LiveReload,
+  // LiveReload,
   Meta,
   Outlet,
   Scripts,
@@ -72,7 +72,7 @@ function Document({
         <RouteChangeAnnouncement />
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === "development" && <LiveReload />}
+        {/* {process.env.NODE_ENV === "development" && <LiveReload />} */}
       </body>
     </html>
   );
