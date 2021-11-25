@@ -66,14 +66,11 @@ export function createFetchHandler({
     let response =
       (process.env.NODE_ENV === "development" && "") || url.pathname === "/"
         ? undefined
-        : await handleAsset(request, env);
+        : await handleAsset(request.clone(), env);
 
     if (!response) {
-      response = await handleRequest(request, env, context);
+      response = await handleRequest(request.clone(), env, context);
     }
-
-    if (request.method.toLowerCase() === "post")
-      console.log({ bodyUsed: response.bodyUsed });
 
     return response;
   };
